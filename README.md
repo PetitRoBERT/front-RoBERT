@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Front RoBERT
+
+**:warning: This repository is in construction :warning:**
+
+This is the Front-end part of [PetitRoBERT](https://github.com/PetitRoBERT) project.
+
+## Required Tools
+
+- `yarn`: find installation [here](https://classic.yarnpkg.com/fr/docs/install)
 
 ## Available Scripts
 
