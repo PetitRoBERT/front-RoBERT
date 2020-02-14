@@ -1,4 +1,4 @@
-# Front RoBERT
+# Front RoBERT ![CI](https://github.com/PetitRoBERT/front-roBERT/workflows/CI/badge.svg?branch=master)
 
 **:warning: This repository is in construction :warning:**
 
