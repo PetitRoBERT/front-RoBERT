@@ -11,7 +11,7 @@ jobs:
       CI: true
       SLACK_TITLE: Pull Request Status
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      SLACK_USERNAME: CI BOT
+      SLACK_USERNAME: CI
       SLACK_ICON: "https://img.icons8.com/ios/50/000000/book-philosophy.png"
     steps:
       - uses: actions/checkout@v1
@@ -40,11 +40,11 @@ jobs:
         if: failure()
         env:
           SLACK_COLOR: '#f83535'
-          SLACK_MESSAGE: Build Failed 😿<https://github.com/${{github.repository}}/pull/${{github.event.number}}| Link to PR ${{github.event.number}}>
+          SLACK_MESSAGE: Build Failed 😿 <https://github.com/${{github.repository}}/pull/${{github.event.number}}| Link to PR ${{github.event.number}}>
 
       - uses: rtCamp/action-slack-notify@v2.0.0
         name: Slack Stopped Notification
         if: cancelled()
         env:
           SLACK_COLOR: '#adadad'
-          SLACK_MESSAGE: Build Stopped ✋🏻<https://github.com/${{github.repository}}/pull/${{github.event.number}}| Link to PR ${{github.event.number}}>
+          SLACK_MESSAGE: Build Stopped ✋🏻 <https://github.com/${{github.repository}}/pull/${{github.event.number}}| Link to PR ${{github.event.number}}>
