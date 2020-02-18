@@ -14,6 +14,8 @@
     ]
   },
   "dependencies": {
+    "@emotion/core": "10.0.27",
+    "@emotion/styled": "10.0.27",
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.3.2",
     "@testing-library/user-event": "7.1.2",
@@ -51,6 +53,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "2.19.2",
     "@typescript-eslint/parser": "2.19.2",
+    "babel-plugin-emotion": "10.0.27",
     "eslint-config-prettier": "6.10.0",
     "eslint-config-react": "1.1.7",
     "eslint-plugin-prettier": "3.1.2",
