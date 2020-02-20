@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import './App.css';
 import styled from '@emotion/styled';
+import TypedComponent from './typedComponent';
+
+import './App.css';
 
 type ButtonProps = {
   counter: number;
@@ -25,6 +27,8 @@ const App = () => {
         <StyledButtonTest onClick={incrementCounter} counter={counter}>
           Test
         </StyledButtonTest>
+        <TypedComponent />
+        <TypedComponent text="new value" />
       </header>
     </div>
   );
