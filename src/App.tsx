@@ -1,36 +1,40 @@
-import React, { useState } from 'react';
-import styled from '@emotion/styled';
-import TypedComponent from './typedComponent';
-
-import './App.css';
-
-type ButtonProps = {
-  counter: number;
-};
-
-const StyledButtonTest = styled.button<ButtonProps>`
-  width: ${({ counter }) => ((counter + 4) * 10) % 200}px;
-`;
+import { Flex, Text } from '@chakra-ui/core';
+import Body from './components/Body';
+import DarkSwitch from './components/DarkSwitch';
+import Emoji from './components/Emoji';
+import Footer from './components/Footer';
+import Heart from './components/Heart';
+import Hero from './components/Hero';
+import React from 'react';
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
-  const incrementCounter = () => setCounter(counter + 1);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
+    <Body>
+      <div style={{ textAlign: 'right' }}>
+        <DarkSwitch />
+      </div>
+      <Hero>
+        <span>
           Welcome to PetitRoBERT.
-          <br />
-          🚧👷🏻‍♂️🚧
-        </p>
-        <StyledButtonTest onClick={incrementCounter} counter={counter}>
-          Test
-        </StyledButtonTest>
-        <TypedComponent />
-        <TypedComponent text="new value" />
-      </header>
-    </div>
+          <div style={{ display: 'inline-block', marginLeft: 50 }}>
+            <span role="img" aria-label="warning">
+              🚧‍
+            </span>
+            <Emoji />
+            <span role="img" aria-label="warning">
+              🚧
+            </span>
+          </div>
+        </span>
+      </Hero>
+      <Footer>
+        <Text fontSize={20}>Made with</Text>
+        <Flex mx={2}>
+          <Heart height={20} />
+        </Flex>
+        <Text fontSize={20}>by PetitRoBERT team.</Text>
+      </Footer>
+    </Body>
   );
 };
 
