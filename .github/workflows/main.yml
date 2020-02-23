@@ -14,23 +14,38 @@ jobs:
       SLACK_USERNAME: CI
       SLACK_ICON: "https://img.icons8.com/ios/50/000000/book-philosophy.png"
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v1
 
-      - uses: borales/actions-yarn@v2.0.0
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
         with:
-          cmd: install # will run `yarn install` command
+          node-version: '12.x'
 
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: lint # will run `yarn lint` command
+      - name: Get Yarn Cache Dir
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: borales/actions-yarn@v2.0.0
+      - name: Restore Cache
+        uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
-          cmd: build # will run `yarn build` command
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: test # will run `yarn test` command
+      - name: Install Yarn Packages
+        run: yarn install
+
+      - name: Check Lint
+        run: yarn lint
+
+      - name: Build Project
+        run: yarn build
+
+      - name: Test Project
+        run: yarn test
 
       - uses: rtCamp/action-slack-notify@v2.0.0
         name: Slack Success Notification
