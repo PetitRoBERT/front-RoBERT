@@ -1,5 +1,6 @@
 import { Flex, Text } from '@chakra-ui/core';
 import Body from './components/Body';
+import Books from './components/AsyncComponent';
 import DarkSwitch from './components/DarkSwitch';
 import Emoji from './components/Emoji';
 import Footer from './components/Footer';
@@ -27,6 +28,7 @@ const App = () => {
           </div>
         </span>
       </Hero>
+      <Books />
       <Footer>
         <Text fontSize={20}>Made with</Text>
         <Flex mx={2}>
